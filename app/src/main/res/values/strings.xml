@@ -24,4 +24,6 @@
     <string name="transactionPin">Ödəniş üçün PİN kodunuzu daxil edin</string>
     <string name="transactionAmount">Göndəriləcək məbləği daxil edin</string>
     <string name="confirm">Təsdiqlə</string>
+    <string name="option">Seçimlər</string>
+    <string name="done">Tamam</string>
 </resources>
