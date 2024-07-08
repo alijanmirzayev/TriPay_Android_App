@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@id/confirmPinFragment">
+    app:startDestination="@id/sendAmountFragment">
 
     <fragment
         android:id="@+id/onboardingFragment"
@@ -25,4 +25,19 @@
         android:name="com.alijan.tripay.ui.auth.confirmPin.ConfirmPinFragment"
         android:label="fragment_confirm_pin"
         tools:layout="@layout/fragment_confirm_pin" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.alijan.tripay.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/transactionAuthFragment"
+        android:name="com.alijan.tripay.ui.sendcash.transactionauth.TransactionAuthFragment"
+        android:label="fragment_transaction_auth"
+        tools:layout="@layout/fragment_transaction_auth" />
+    <fragment
+        android:id="@+id/sendAmountFragment"
+        android:name="com.alijan.tripay.ui.sendcash.amount.SendAmountFragment"
+        android:label="fragment_send_amount"
+        tools:layout="@layout/fragment_send_amount" />
 </navigation>

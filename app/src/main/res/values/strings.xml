@@ -14,4 +14,14 @@
     <string name="termsPolicy">Qaydalar və Şərtlərlə razıyam</string>
     <string name="createPin">Hesab üçün PİN kod yarat</string>
     <string name="confirmPin">PİN kodu yeniden daxil edin</string>
+    <string name="hello">Salam, Alican</string>
+    <string name="balance">Balansınız:</string>
+    <string name="sendCash">Pul göndər</string>
+    <string name="addFund">Balans artır</string>
+    <string name="services">Xidmətlər</string>
+    <string name="recentTransaction">Son əməliyyatlar</string>
+    <string name="seeAll">Daha çox</string>
+    <string name="transactionPin">Ödəniş üçün PİN kodunuzu daxil edin</string>
+    <string name="transactionAmount">Göndəriləcək məbləği daxil edin</string>
+    <string name="confirm">Təsdiqlə</string>
 </resources>

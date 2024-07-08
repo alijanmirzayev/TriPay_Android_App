@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.home.HomeFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.33" />
+
+    <View
+        android:id="@+id/viewHomeHeader"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/blue_30"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewHomeWelcomeMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/hello"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/dmsans_bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewHomeHeader" />
+
+    <TextView
+        android:id="@+id/textViewHomeBalanceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/balance"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/dmsans_medium"
+        app:layout_constraintStart_toStartOf="@+id/textViewHomeWelcomeMessage"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHomeWelcomeMessage" />
+
+    <TextView
+        android:id="@+id/textViewHomeBalance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="₼200.00"
+        android:textSize="35sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/dmsans_medium"
+        app:layout_constraintStart_toStartOf="@+id/textViewHomeBalanceText"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHomeBalanceText" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHomeVertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonHomeSendCash"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="24dp"
+        app:icon="@drawable/icon_down_arrow"
+        app:iconTint="@color/white"
+        app:cornerRadius="8dp"
+        android:backgroundTint="@color/red_4E"
+        android:text="@string/sendCash"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:fontFamily="@font/dmsans_medium"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHome"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineHomeVertical"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonHomeAddFund"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        app:icon="@drawable/icon_up_arrow"
+        app:iconTint="@color/white"
+        app:cornerRadius="8dp"
+        android:backgroundTint="@color/green_8F"
+        android:text="@string/addFund"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:fontFamily="@font/dmsans_medium"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guidelineHomeVertical" />
+
+    <TextView
+        android:id="@+id/textViewHomeServices"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/services"
+        android:textSize="20sp"
+        android:textColor="@color/black_3B"
+        android:fontFamily="@font/dmsans_bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHome" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHomeServices"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:paddingStart="24dp"
+        android:clipToPadding="true"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="horizontal"
+        tools:listitem="@layout/item_services"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHomeServices" />
+
+    <TextView
+        android:id="@+id/textViewHomeRecentTransactionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/recentTransaction"
+        android:textSize="20sp"
+        android:textColor="@color/black_3B"
+        android:fontFamily="@font/dmsans_bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvHomeServices" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHomeRecentTransaction"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHomeRecentTransactionText" />
+
+    <TextView
+        android:id="@+id/textViewHomeSeeAllTransaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="@string/seeAll"
+        android:textSize="14sp"
+        android:textColor="@color/green_8F"
+        android:fontFamily="@font/dmsans_medium"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewHomeRecentTransactionText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textViewHomeRecentTransactionText" />
+</androidx.constraintlayout.widget.ConstraintLayout>
