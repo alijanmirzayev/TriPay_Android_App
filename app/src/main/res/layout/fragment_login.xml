@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_30"
+    tools:context=".ui.auth.login.LoginFragment">
+
+    <ImageView
+        android:id="@+id/imageViewLoginLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/img_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <TextView
+        android:id="@+id/textViewLoginCreateAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:fontFamily="@font/dmsans_regular"
+        android:text="@string/enterAccount"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+    <EditText
+        android:id="@+id/editTextLoginEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bg_input"
+        android:fontFamily="@font/dmsans_regular"
+        android:hint="@string/enterEmail"
+        android:inputType="textEmailAddress"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey_AE"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewLoginCreateAccount"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLoginCreateAccount" />
+
+    <View
+        android:id="@+id/viewLoginPrefix"
+        android:layout_width="92dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_input"
+        app:layout_constraintStart_toStartOf="@+id/editTextLoginEmail"
+        app:layout_constraintTop_toBottomOf="@+id/editTextLoginEmail" />
+
+    <TextView
+        android:id="@+id/textViewLoginPhonePrefix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="3dp"
+        android:fontFamily="@font/dmsans_regular"
+        android:text="+994"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewLoginAzeIcon"
+        app:layout_constraintStart_toEndOf="@+id/imageViewLoginAzeIcon"
+        app:layout_constraintTop_toTopOf="@+id/imageViewLoginAzeIcon"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageViewLoginAzeIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:src="@drawable/icon_azerbaijan"
+        app:layout_constraintBottom_toBottomOf="@+id/viewLoginPrefix"
+        app:layout_constraintStart_toStartOf="@+id/viewLoginPrefix"
+        app:layout_constraintTop_toTopOf="@+id/viewLoginPrefix" />
+
+    <EditText
+        android:id="@+id/editTextLoginPhoneNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bg_input"
+        android:fontFamily="@font/dmsans_regular"
+        android:hint="@string/enterPhoneNumber"
+        android:inputType="number"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey_AE"
+
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/viewLoginPrefix"
+        app:layout_constraintTop_toBottomOf="@+id/editTextLoginEmail" />
+
+    <TextView
+        android:id="@+id/textViewLoginAuthText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/dmsans_regular"
+        android:text="@string/dontHaveAccount"
+        android:textColor="@color/grey_9A"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/green_8F"
+        android:fontFamily="@font/dmsans_regular"
+        android:paddingVertical="18dp"
+        android:text="@string/enter"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewLoginAuthText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

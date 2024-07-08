@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Tripay</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="next">Növbəti</string>
+    <string name="createAccount">Hesab yarat</string>
+    <string name="enterAccount">Hesaba daxil ol</string>
+    <string name="enterName">Adınızı daxil edin</string>
+    <string name="enterEmail">E-mail adresini daxil edin</string>
+    <string name="enterPhoneNumber">Nömrənizi daxil edin</string>
+    <string name="haveAccount">Hesabınız var? Daxil ol</string>
+    <string name="dontHaveAccount">Hesabınız yoxur? Qeydiyyatdan keç</string>
+    <string name="enter">Daxil ol</string>
+    <string name="registration">Qeydiyyat</string>
+    <string name="termsPolicy">Qaydalar və Şərtlərlə razıyam</string>
+    <string name="createPin">Hesab üçün PİN kod yarat</string>
+    <string name="confirmPin">PİN kodu yeniden daxil edin</string>
+</resources>
