@@ -1,5 +1,7 @@
-# Tripay Android App Kotlin
+# Tripay Digital Wallet Android App (Kotlin)
 
+</br>
+Tripay Digital Wallet Android application I've developed allows users to securely and easily manage their digital wallets. With this app, users can store bank cards, and other payment methods in one place, enabling quick and secure transactions. Featuring a user-friendly interface and robust security measures, we ensure that your financial transactions are always protected. This application is designed to enhance user experience, saving you time in your daily financial activities.
 </br>
 
 ## 🛠 Built With
