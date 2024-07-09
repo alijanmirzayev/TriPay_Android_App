@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.sendcash.sendcard.SendCardFragment">
+
+    <ImageView
+        android:id="@+id/imageViewOptionBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/icon_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewOptionHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/dmsans_medium"
+        android:text="@string/card"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewOptionBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageViewOptionBack" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewSendCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:backgroundTint="@color/blue_30"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewOptionBack">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clSendCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageViewSendCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:src="@drawable/icon_mastercard"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewSendCardValidDate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textViewSendCardValidDate" />
+
+            <TextView
+                android:id="@+id/textViewSendCardHolder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="64dp"
+                android:fontFamily="@font/dmsans_bold"
+                android:letterSpacing="0.37"
+                android:text="Alijan Mirzayev"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewSendCardNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/dmsans_regular"
+                android:letterSpacing="0.45"
+                android:text="**** **** **** 1391"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/textViewSendCardHolder"
+                app:layout_constraintTop_toBottomOf="@+id/textViewSendCardHolder" />
+
+            <TextView
+                android:id="@+id/textViewSendCardValidDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:fontFamily="@font/dmsans_semibold"
+                android:text="08/28"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textViewSendCardNumber"
+                app:layout_constraintTop_toBottomOf="@+id/textViewSendCardNumber" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textViewSendCardInformation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/dmsans_regular"
+        android:text="@string/cardInformation"
+        android:textColor="@color/black_3B"
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewSendCard" />
+
+    <EditText
+        android:id="@+id/editTextSendCardHolder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bg_input_dark"
+        android:fontFamily="@font/dmsans_regular"
+        android:hint="@string/cardHolder"
+        android:inputType="text"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey_AE"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewSendCardInformation"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSendCardInformation" />
+
+    <EditText
+        android:id="@+id/editTextSendCardNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_input_dark"
+        android:fontFamily="@font/dmsans_regular"
+        android:hint="@string/cardNumber"
+        android:inputType="number"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey_AE"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/editTextSendCardHolder"
+        app:layout_constraintStart_toStartOf="@+id/editTextSendCardHolder"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSendCardHolder" />
+
+    <EditText
+        android:id="@+id/editTextSendCardValidDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/bg_input_dark"
+        android:fontFamily="@font/dmsans_regular"
+        android:hint="MM/YY"
+        android:inputType="number"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey_AE"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/editTextSendCardCvv"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSendCardNumber" />
+
+    <EditText
+        android:id="@+id/editTextSendCardCvv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bg_input_dark"
+        android:fontFamily="@font/dmsans_regular"
+        android:hint="CVV"
+        android:inputType="number"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey_AE"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/editTextSendCardValidDate"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSendCardNumber" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonSendCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/green_8F"
+        android:fontFamily="@font/dmsans_regular"
+        android:paddingVertical="18dp"
+        android:text="@string/confirm"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

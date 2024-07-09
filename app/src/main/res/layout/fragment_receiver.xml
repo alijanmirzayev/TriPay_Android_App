@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.sendcash.receiver.ReceiverFragment">
+
+    <ImageView
+        android:id="@+id/imageViewReceiverBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/icon_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewOptionHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/dmsans_medium"
+        android:text="@string/receiverChoose"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewReceiverBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageViewReceiverBack" />
+
+    <EditText
+        android:id="@+id/editTextReceiverSearch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bg_input_dark"
+        android:drawableLeft="@drawable/icon_search"
+        android:drawablePadding="8dp"
+        android:fontFamily="@font/dmsans_regular"
+        android:hint="@string/nameOrPhone"
+        android:inputType="text"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey_AE"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageViewReceiverBack"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewReceiverBack" />
+
+    <TextView
+        android:id="@+id/textViewReceiverContactChoose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/dmsans_medium"
+        android:text="@string/contactChoose"
+        android:textColor="@color/blue_30"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/editTextReceiverSearch"
+        app:layout_constraintTop_toBottomOf="@+id/editTextReceiverSearch" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvReceiverContact"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewReceiverContactChoose"
+        tools:listitem="@layout/item_contact"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,4 +26,17 @@
     <string name="confirm">Təsdiqlə</string>
     <string name="option">Seçimlər</string>
     <string name="done">Tamam</string>
+    <string name="card">Kart</string>
+    <string name="cardDescription">Hesabınızdan debet kartınıza pul köçürün</string>
+    <string name="cardInformation">Kart məlumatları</string>
+    <string name="cardHolder">Kart sahibi</string>
+    <string name="cardNumber">Kart nömrəsi</string>
+    <string name="contact">Kontakt</string>
+    <string name="contactDescription">Hesabınızdan kontaktınızdakı şəxsə pul köçürün</string>
+    <string name="receiverChoose">Kimə pul göndərmək istəyirsiniz?</string>
+    <string name="nameOrPhone">Ad vəya nömrə</string>
+    <string name="contactChoose">Kontaktınızdan seçin</string>
+    <string name="receiverMessage">Alıcıya mesaj</string>
+    <string name="messageOptional">Mesajınız (Məcburi deyil)</string>
+    <string name="messageInput">Mesajınızı bura daxil edin</string>
 </resources>

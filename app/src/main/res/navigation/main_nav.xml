@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@id/optionFragment">
+    app:startDestination="@id/receiverMessageFragment">
 
     <fragment
         android:id="@+id/onboardingFragment"
@@ -41,8 +41,28 @@
         android:label="fragment_send_amount"
         tools:layout="@layout/fragment_send_amount" />
     <fragment
-        android:id="@+id/optionFragment"
-        android:name="com.alijan.tripay.ui.option.OptionFragment"
-        android:label="fragment_option"
-        tools:layout="@layout/fragment_option" />
+        android:id="@+id/sendOptionFragment"
+        android:name="com.alijan.tripay.ui.sendcash.sendoption.SendOptionFragment"
+        android:label="fragment_send_option"
+        tools:layout="@layout/fragment_send_option" />
+    <fragment
+        android:id="@+id/responseMessageFragment"
+        android:name="com.alijan.tripay.ui.responsemessage.ResponseMessageFragment"
+        android:label="fragment_response_message"
+        tools:layout="@layout/fragment_response_message" />
+    <fragment
+        android:id="@+id/sendCardFragment"
+        android:name="com.alijan.tripay.ui.sendcash.sendcard.SendCardFragment"
+        android:label="fragment_send_card"
+        tools:layout="@layout/fragment_send_card" />
+    <fragment
+        android:id="@+id/receiverFragment"
+        android:name="com.alijan.tripay.ui.sendcash.receiver.ReceiverFragment"
+        android:label="fragment_receiver"
+        tools:layout="@layout/fragment_receiver" />
+    <fragment
+        android:id="@+id/receiverMessageFragment"
+        android:name="com.alijan.tripay.ui.sendcash.receivermessage.ReceiverMessageFragment"
+        android:label="fragment_receiver_message"
+        tools:layout="@layout/fragment_receiver_message" />
 </navigation>
