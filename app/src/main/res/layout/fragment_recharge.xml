@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    tools:context=".ui.services.recharge.RechargeFragment">
+
+    <ImageView
+        android:id="@+id/imageViewRechargeBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/icon_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewRechargeHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/dmsans_medium"
+        android:text="@string/recharge"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewRechargeBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageViewRechargeBack" />
+
+    <TextView
+        android:id="@+id/textViewRechargeOperator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/dmsans_semibold"
+        android:text="@string/selectRecharge"
+        android:textColor="@color/black_3B"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/imageViewRechargeBack"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewRechargeBack" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRecharge"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="horizontal"
+        android:paddingLeft="24dp"
+        android:clipToPadding="true"
+        tools:listitem="@layout/item_brand"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRechargeOperator" />
+
+    <TextView
+        android:id="@+id/textViewRechargeMobileNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/dmsans_semibold"
+        android:text="@string/phoneNumber"
+        android:textColor="@color/black_3B"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvRecharge" />
+
+    <TextView
+        android:id="@+id/textViewRechargeMobileNumberDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/dmsans_medium"
+        android:text="@string/phoneNumberDesc"
+        android:textColor="@color/grey_AE"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textViewRechargeMobileNumber"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRechargeMobileNumber" />
+
+    <EditText
+        android:id="@+id/editTextRechargePhoneNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bg_input_dark"
+        android:fontFamily="@font/dmsans_regular"
+        android:hint="@string/phoneNumber"
+        android:inputType="text"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey_AE"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewRechargeMobileNumberDesc"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRechargeMobileNumberDesc" />
+
+    <TextView
+        android:id="@+id/textViewRechargeAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/enterAmount"
+        android:fontFamily="@font/dmsans_semibold"
+        android:textColor="@color/black_3B"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/editTextRechargePhoneNumber"
+        app:layout_constraintTop_toBottomOf="@+id/editTextRechargePhoneNumber" />
+
+    <EditText
+        android:id="@+id/editTextRechargeAmount"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:inputType="numberDecimal"
+        android:background="@drawable/bg_input_dark"
+        android:fontFamily="@font/dmsans_semibold"
+        android:gravity="center"
+        android:maxLength="9"
+        android:hint="₼0.00"
+        android:padding="8dp"
+        android:paddingHorizontal="16dp"
+        android:textColor="@color/black_3B"
+        android:textColorHint="@color/black_3B"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewRechargeAmount"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRechargeAmount" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonSendCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/green_8F"
+        android:fontFamily="@font/dmsans_regular"
+        android:paddingVertical="18dp"
+        android:text="@string/continueText"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@id/receiverMessageFragment">
+    app:startDestination="@id/rechargeFragment">
 
     <fragment
         android:id="@+id/onboardingFragment"
@@ -37,7 +37,7 @@
         tools:layout="@layout/fragment_transaction_auth" />
     <fragment
         android:id="@+id/sendAmountFragment"
-        android:name="com.alijan.tripay.ui.sendcash.amount.SendAmountFragment"
+        android:name="com.alijan.tripay.ui.sendcash.sendamount.SendAmountFragment"
         android:label="fragment_send_amount"
         tools:layout="@layout/fragment_send_amount" />
     <fragment
@@ -65,4 +65,9 @@
         android:name="com.alijan.tripay.ui.sendcash.receivermessage.ReceiverMessageFragment"
         android:label="fragment_receiver_message"
         tools:layout="@layout/fragment_receiver_message" />
+    <fragment
+        android:id="@+id/rechargeFragment"
+        android:name="com.alijan.tripay.ui.services.recharge.RechargeFragment"
+        android:label="fragment_recharge"
+        tools:layout="@layout/fragment_recharge" />
 </navigation>

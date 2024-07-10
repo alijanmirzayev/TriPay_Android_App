@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/blue_30"
-        tools:context=".ui.sendcash.amount.SendAmountFragment">
+        tools:context=".ui.sendcash.sendamount.SendAmountFragment">
 
         <ImageView
             android:id="@+id/imageViewSendAmountClose"

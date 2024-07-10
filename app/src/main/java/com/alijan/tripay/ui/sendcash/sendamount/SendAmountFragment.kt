@@ -1,4 +1,4 @@
-package com.alijan.tripay.ui.sendcash.amount
+package com.alijan.tripay.ui.sendcash.sendamount
 
 import com.alijan.tripay.databinding.FragmentSendAmountBinding
 import com.alijan.tripay.ui.BaseFragment

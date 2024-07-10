@@ -39,4 +39,10 @@
     <string name="receiverMessage">Alıcıya mesaj</string>
     <string name="messageOptional">Mesajınız (Məcburi deyil)</string>
     <string name="messageInput">Mesajınızı bura daxil edin</string>
+    <string name="recharge">Mobil operatorlar</string>
+    <string name="selectRecharge">Mobil operator seç</string>
+    <string name="phoneNumber">Mobil nömrə</string>
+    <string name="phoneNumberDesc">Mobil nömrəni daxil edin</string>
+    <string name="enterAmount">Məbləği daxil edin</string>
+    <string name="continueText">Davam et</string>
 </resources>
