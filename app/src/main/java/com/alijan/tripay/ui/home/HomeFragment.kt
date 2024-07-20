@@ -1,6 +1,6 @@
 package com.alijan.tripay.ui.home
 
-import android.util.Log
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.alijan.tripay.R
 import com.alijan.tripay.data.model.Service
@@ -11,6 +11,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
+    private val viewModel by viewModels<HomeViewModel>()
     private val args: HomeFragmentArgs by navArgs()
     private val serviceAdapter = ServiceAdapter()
     private val serviceList = arrayListOf(
@@ -24,8 +25,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun layoutInflater(): FragmentHomeBinding = FragmentHomeBinding.inflate(layoutInflater)
 
     override fun setupUI() {
+        observe()
+        request()
         setAdapter()
-        Log.e("salam2", args.toString())
+    }
+
+    private fun request(){
+        viewModel.getUserByUserId(args.userId)
+    }
+
+    private fun observe(){
+        viewModel.user.observe(viewLifecycleOwner){
+            binding.name = it?.userName
+            binding.balance = it?.userBalance
+        }
     }
 
     private fun setAdapter(){

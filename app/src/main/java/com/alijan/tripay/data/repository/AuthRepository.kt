@@ -61,6 +61,19 @@ class AuthRepository @Inject constructor(
         }.flowOn(Dispatchers.IO)
     }
 
+    suspend fun getUserByUserId(
+        id: Int
+    ): Flow<NetworkResponse<UserLocalDTO?>> {
+        return flow {
+            try {
+                val response = roomDatabase.userDao().getUserByUserId(id)
+                emit(NetworkResponse.Success(response))
+            } catch (e: Exception) {
+                emit(NetworkResponse.Error(e.localizedMessage.toString()))
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
     suspend fun insertPinCode(value: PinCodeLocalDTO): Flow<NetworkResponse<Long>> {
         return flow {
             try {

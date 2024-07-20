@@ -16,6 +16,9 @@ interface UserDao {
     @Query("SELECT * FROM users WHERE user_phone_number = :phoneNumber AND user_mail = :mail")
     suspend fun getUserByPhoneNumberAndMail(phoneNumber: String, mail: String): UserLocalDTO?
 
+    @Query("SELECT * FROM users WHERE user_id = :id")
+    suspend fun getUserByUserId(id: Int): UserLocalDTO?
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPinCode(value: PinCodeLocalDTO): Long
 

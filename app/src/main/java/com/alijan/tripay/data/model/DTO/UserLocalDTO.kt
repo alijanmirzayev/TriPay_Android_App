@@ -11,4 +11,5 @@ data class UserLocalDTO(
     @ColumnInfo(name = "user_name") val userName: String?,
     @ColumnInfo(name = "user_mail") val userMail: String?,
     @ColumnInfo(name = "user_phone_number") val userPhoneNumber: String?,
+    @ColumnInfo(name = "user_balance") val userBalance: Double,
 )

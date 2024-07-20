@@ -1,6 +1,6 @@
 package com.alijan.tripay.ui.auth.confirmPin
 
-import android.util.Log
+import android.os.Bundle
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -10,8 +10,6 @@ import com.alijan.tripay.data.model.DTO.PinCodeLocalDTO
 import com.alijan.tripay.databinding.FragmentConfirmPinBinding
 import com.alijan.tripay.ui.BaseFragment
 import com.alijan.tripay.ui.adapter.PinNumberAdapter
-import com.alijan.tripay.ui.auth.createPin.CreatePinFragmentArgs
-import com.alijan.tripay.ui.auth.createPin.CreatePinFragmentDirections
 import com.alijan.tripay.utils.showFancyToast
 import com.shashank.sony.fancytoastlib.FancyToast
 import dagger.hilt.android.AndroidEntryPoint
@@ -70,7 +68,9 @@ class ConfirmPinFragment : BaseFragment<FragmentConfirmPinBinding>() {
                     lifecycleScope.launch {
                         showToastMessage("Əsas səhifəyə yönləndirilirsiz.", FancyToast.SUCCESS)
                         delay(1700)
-                        findNavController().navigate(R.id.homeFragment)
+                        val bundle = Bundle()
+                        bundle.putInt("userId", args.userId)
+                        findNavController().navigate(R.id.homeFragment, bundle)
                     }
                 } else if (pinCode.length == 4) {
                     pinCode = ""

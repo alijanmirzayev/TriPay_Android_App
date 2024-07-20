@@ -47,7 +47,7 @@ class RegistrationFragment : BaseFragment<FragmentRegistrationBinding>() {
                 val name =  editTextRegistrationName.text.toString().trim()
                 val mail = editTextRegistrationEmail.text.toString().trim()
                 val phoneNumber = "+994${editTextRegistrationPhoneNumber.text.toString().trim()}"
-                val value = UserLocalDTO(userName = name, userMail = mail, userPhoneNumber = phoneNumber)
+                val value = UserLocalDTO(userName = name, userMail = mail, userPhoneNumber = phoneNumber, userBalance = 0.00)
                 viewModel.insertUser(value)
             }
         }
