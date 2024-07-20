@@ -31,7 +31,6 @@ class ConfirmPinFragment : BaseFragment<FragmentConfirmPinBinding>() {
     override fun setupUI() {
         setAdapter()
         buttonClickListener()
-        Log.e("salam", args.toString())
     }
 
     private fun setAdapter() {
@@ -73,8 +72,13 @@ class ConfirmPinFragment : BaseFragment<FragmentConfirmPinBinding>() {
                         delay(1700)
                         findNavController().navigate(R.id.homeFragment)
                     }
-                } else {
+                } else if (pinCode.length == 4) {
+                    pinCode = ""
                     showToastMessage("PIN kod yanlışdır", FancyToast.WARNING)
+                    imageViewConfirmPinEmpty1.setImageResource(R.drawable.empty_dot)
+                    imageViewConfirmPinEmpty2.setImageResource(R.drawable.empty_dot)
+                    imageViewConfirmPinEmpty3.setImageResource(R.drawable.empty_dot)
+                    imageViewConfirmPinEmpty4.setImageResource(R.drawable.empty_dot)
                 }
             }
         }
