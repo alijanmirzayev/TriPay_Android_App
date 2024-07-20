@@ -5,7 +5,7 @@ Tripay Digital Wallet Android application I've developed allows users to securel
 </br>
 
 ## 🛠 Built With
-- [MVVM with Clean Architecture](https://www.toptal.com/android/android-apps-mvvm-with-clean-architecture) 
+- [MVVM Architecture](https://www.toptal.com/android/android-apps-mvvm-with-clean-architecture) 
 - [Material Design 3](https://m3.material.io/)
 - [Coroutines & Flow](https://developer.android.com/kotlin/flow)
 - [Hilt for Dependency Injection](https://developer.android.com/training/dependency-injection/hilt-android)
