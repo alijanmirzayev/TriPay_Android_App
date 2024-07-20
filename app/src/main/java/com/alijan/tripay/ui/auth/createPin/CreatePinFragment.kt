@@ -1,11 +1,17 @@
 package com.alijan.tripay.ui.auth.createPin
 
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.alijan.tripay.R
 import com.alijan.tripay.databinding.FragmentCreatePinBinding
 import com.alijan.tripay.ui.BaseFragment
 import com.alijan.tripay.ui.adapter.PinNumberAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class CreatePinFragment : BaseFragment<FragmentCreatePinBinding>() {
+    private val args: CreatePinFragmentArgs by navArgs()
     private val pinNumberAdapter = PinNumberAdapter()
     private val numberList = arrayListOf("1", "2", "3", "4", "5", "6", "7", "8", "9", "", "0", "✖")
     private var pinCode = ""
@@ -45,7 +51,11 @@ class CreatePinFragment : BaseFragment<FragmentCreatePinBinding>() {
                         }
                     }
                 }
+                if (pinCode.length == 4) {
+                    findNavController().navigate(CreatePinFragmentDirections.actionCreatePinFragmentToConfirmPinFragment(userId = args.userId, pinCode = pinCode))
+                }
             }
+
         }
     }
 

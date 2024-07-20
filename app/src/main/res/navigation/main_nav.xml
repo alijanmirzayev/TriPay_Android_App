@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@id/enterPinFragment">
+    app:startDestination="@id/splashFragment">
     <include app:graph="@navigation/onboarding_nav" />
     <include app:graph="@navigation/auth_nav" />
     <fragment
@@ -11,4 +11,14 @@
         android:name="com.alijan.tripay.ui.auth.enterPin.EnterPinFragment"
         android:label="fragment_enter_pin"
         tools:layout="@layout/fragment_enter_pin" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.alijan.tripay.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.alijan.tripay.ui.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" />
 </navigation>

@@ -1,60 +1,61 @@
 package com.alijan.tripay.ui.auth.login
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import com.alijan.tripay.R
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.alijan.tripay.databinding.FragmentLoginBinding
+import com.alijan.tripay.ui.BaseFragment
+import com.alijan.tripay.utils.showFancyToast
+import com.shashank.sony.fancytoastlib.FancyToast
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+@AndroidEntryPoint
+class LoginFragment : BaseFragment<FragmentLoginBinding>() {
+    private val viewModel by viewModels<LoginViewModel>()
+    override fun layoutInflater(): FragmentLoginBinding = FragmentLoginBinding.inflate(layoutInflater)
 
-/**
- * A simple [Fragment] subclass.
- * Use the [LoginFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class LoginFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    override fun setupUI() {
+        observeData()
+        buttonClickListener()
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private fun observeData() {
+        with(viewModel) {
+            user.observe(viewLifecycleOwner) {
+                lifecycleScope.launch {
+                    if(it != null){
+                        showToastMessage("Uğurlu giriş!", FancyToast.SUCCESS)
+
+                        delay(1700)
+                        it.userId?.let { userId ->
+                            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToCreatePinFragment(userId))
+                        }
+
+                    } else if (it == null) {
+                        showToastMessage("E-mail adresi vəya nömrə yanlışdır!", FancyToast.ERROR)
+                    }
+                }
+            }
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+    private fun buttonClickListener(){
+        with(binding){
+            textViewLoginAuthText.setOnClickListener {
+                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToRegistrationFragment())
+            }
+            buttonLogin.setOnClickListener {
+                val phoneNumber = "+994${editTextLoginPhoneNumber.text.toString().trim()}"
+                val mail = editTextLoginEmail.text.toString().trim()
+                viewModel.getUserByPhoneNumberAndMail(phoneNumber, mail)
+            }
+        }
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment LoginFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            LoginFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun showToastMessage(message: String, type: Int) {
+        requireContext().showFancyToast(message, type)
     }
+
 }

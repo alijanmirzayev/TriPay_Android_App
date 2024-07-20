@@ -1,11 +1,14 @@
 package com.alijan.tripay.ui.onboarding
 
+import androidx.navigation.fragment.findNavController
 import com.alijan.tripay.R
 import com.alijan.tripay.data.model.Onboarding
 import com.alijan.tripay.databinding.FragmentOnboardingBinding
 import com.alijan.tripay.ui.BaseFragment
 import com.alijan.tripay.ui.adapter.OnboardingAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>() {
     private val onboardingAdapter = OnboardingAdapter()
     private val onboardingItems = arrayListOf(
@@ -45,7 +48,7 @@ class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>() {
                     viewPager2Onboarding.setCurrentItem(1, true)
                     buttonOnboarding.text = "Daxil ol"
                 } else {
-                    // navigate olacaq
+                    findNavController().navigate(R.id.action_onboarding_to_auth)
                 }
             }
         }

@@ -9,5 +9,11 @@
         android:id="@+id/onboardingFragment"
         android:name="com.alijan.tripay.ui.onboarding.OnboardingFragment"
         android:label="fragment_onboarding"
-        tools:layout="@layout/fragment_onboarding" />
+        tools:layout="@layout/fragment_onboarding">
+        <action
+            android:id="@+id/action_onboarding_to_auth"
+            app:destination="@id/auth_nav"
+            app:popUpTo="@id/onboarding_nav"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

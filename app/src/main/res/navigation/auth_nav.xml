@@ -30,10 +30,25 @@
         <action
             android:id="@+id/action_createPinFragment_to_confirmPinFragment"
             app:destination="@id/confirmPinFragment" />
+        <argument
+            android:name="userId"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/confirmPinFragment"
         android:name="com.alijan.tripay.ui.auth.confirmPin.ConfirmPinFragment"
         android:label="fragment_confirm_pin"
-        tools:layout="@layout/fragment_confirm_pin" />
+        tools:layout="@layout/fragment_confirm_pin" >
+        <action
+            android:id="@+id/action_auth_to_home"
+            app:destination="@id/main_nav"
+            app:popUpTo="@id/auth_nav"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="userId"
+            app:argType="integer" />
+        <argument
+            android:name="pinCode"
+            app:argType="string" />
+    </fragment>
 </navigation>

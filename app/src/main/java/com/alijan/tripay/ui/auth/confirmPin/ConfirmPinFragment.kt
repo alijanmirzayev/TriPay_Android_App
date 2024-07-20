@@ -1,21 +1,37 @@
 package com.alijan.tripay.ui.auth.confirmPin
 
+import android.util.Log
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.alijan.tripay.R
+import com.alijan.tripay.data.model.DTO.PinCodeLocalDTO
 import com.alijan.tripay.databinding.FragmentConfirmPinBinding
 import com.alijan.tripay.ui.BaseFragment
 import com.alijan.tripay.ui.adapter.PinNumberAdapter
+import com.alijan.tripay.ui.auth.createPin.CreatePinFragmentArgs
+import com.alijan.tripay.ui.auth.createPin.CreatePinFragmentDirections
+import com.alijan.tripay.utils.showFancyToast
+import com.shashank.sony.fancytoastlib.FancyToast
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class ConfirmPinFragment : BaseFragment<FragmentConfirmPinBinding>() {
+    private val viewModel by viewModels<ConfirmViewModel>()
+    private val args: ConfirmPinFragmentArgs by navArgs()
     private val pinNumberAdapter = PinNumberAdapter()
     private val numberList = arrayListOf("1", "2", "3", "4", "5", "6", "7", "8", "9", "", "0", "✖")
     private var pinCode = ""
-
     override fun layoutInflater(): FragmentConfirmPinBinding =
         FragmentConfirmPinBinding.inflate(layoutInflater)
 
     override fun setupUI() {
         setAdapter()
         buttonClickListener()
+        Log.e("salam", args.toString())
     }
 
     private fun setAdapter() {
@@ -45,7 +61,26 @@ class ConfirmPinFragment : BaseFragment<FragmentConfirmPinBinding>() {
                         }
                     }
                 }
+
+                if (pinCode.length == 4 && pinCode == args.pinCode) {
+                    viewModel.insertPinCode(PinCodeLocalDTO(
+                        userId = args.userId,
+                        userPinCode = args.pinCode
+                    ))
+                    viewModel.saveUserIdToDataStore(args.userId)
+                    lifecycleScope.launch {
+                        showToastMessage("Əsas səhifəyə yönləndirilirsiz.", FancyToast.SUCCESS)
+                        delay(1700)
+                        findNavController().navigate(R.id.homeFragment)
+                    }
+                } else {
+                    showToastMessage("PIN kod yanlışdır", FancyToast.WARNING)
+                }
             }
         }
+    }
+
+    private fun showToastMessage(message: String, type: Int) {
+        requireContext().showFancyToast(message, type)
     }
 }
