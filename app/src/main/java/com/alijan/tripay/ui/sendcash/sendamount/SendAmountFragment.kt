@@ -1,11 +1,18 @@
 package com.alijan.tripay.ui.sendcash.sendamount
 
+import android.util.Log
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.alijan.tripay.databinding.FragmentSendAmountBinding
 import com.alijan.tripay.ui.BaseFragment
 import com.alijan.tripay.ui.adapter.PinNumberAdapter
+import com.alijan.tripay.utils.showFancyToast
+import com.shashank.sony.fancytoastlib.FancyToast
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SendAmountFragment : BaseFragment<FragmentSendAmountBinding>() {
+    private val viewModel by viewModels<SendAmountViewModel>()
     private val pinNumberAdapter = PinNumberAdapter()
     private val numberList = arrayListOf("1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "0", "✖")
     private var amount = ""
@@ -43,10 +50,26 @@ class SendAmountFragment : BaseFragment<FragmentSendAmountBinding>() {
                 findNavController().popBackStack()
             }
             buttonSendAmount.setOnClickListener {
-                findNavController().navigate(SendAmountFragmentDirections.actionSendAmountFragmentToSendOptionFragment(amount = amount.toFloat()))
+                if(amount != ""){
+                    if (viewModel.user.value?.userBalance ?: 0.00 >= amount.toFloat()) {
+                            findNavController().navigate(
+                                SendAmountFragmentDirections.actionSendAmountFragmentToSendOptionFragment(
+                                    amount = amount.toFloat()
+                                )
+                            )
+                    } else {
+                        showToastMessage("Balansınızda kifayət qədər məbləğ yoxdur", FancyToast.WARNING)
+                    }
+                } else {
+                    showToastMessage("Məbləğ daxil edin", FancyToast.WARNING)
+                }
             }
         }
 
+    }
+
+    private fun showToastMessage(message: String, type: Int) {
+        requireContext().showFancyToast(message, type)
     }
 
 }

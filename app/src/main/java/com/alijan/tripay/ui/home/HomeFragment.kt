@@ -1,5 +1,6 @@
 package com.alijan.tripay.ui.home
 
+import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -33,6 +34,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         viewModel.user.observe(viewLifecycleOwner){
             binding.name = it?.userName
             binding.balance = it?.userBalance
+        }
+        viewModel.transaction.observe(viewLifecycleOwner){
+            Log.e("salam2",it.toString())
+        }
+        viewModel.error.observe(viewLifecycleOwner){
+            Log.e("salam2",it.toString())
         }
     }
 

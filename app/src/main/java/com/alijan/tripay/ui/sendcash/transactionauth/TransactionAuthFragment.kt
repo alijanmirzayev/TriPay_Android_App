@@ -8,13 +8,12 @@ import com.alijan.tripay.R
 import com.alijan.tripay.databinding.FragmentTransactionAuthBinding
 import com.alijan.tripay.ui.BaseFragment
 import com.alijan.tripay.ui.adapter.PinNumberAdapter
-import com.alijan.tripay.ui.auth.enterPin.EnterPinFragmentDirections
-import com.alijan.tripay.ui.auth.enterPin.EnterPinViewModel
 import com.alijan.tripay.utils.showFancyToast
 import com.shashank.sony.fancytoastlib.FancyToast
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+
 @AndroidEntryPoint
 class TransactionAuthFragment : BaseFragment<FragmentTransactionAuthBinding>() {
     private val args: TransactionAuthFragmentArgs by navArgs()
@@ -32,8 +31,8 @@ class TransactionAuthFragment : BaseFragment<FragmentTransactionAuthBinding>() {
         buttonClickListener()
     }
 
-    private fun observe(){
-        viewModel.error.observe(viewLifecycleOwner){
+    private fun observe() {
+        viewModel.error.observe(viewLifecycleOwner) {
             showToastMessage("Pin kod tapılmadı", FancyToast.ERROR)
             findNavController().navigate(R.id.auth_nav)
         }
@@ -67,16 +66,22 @@ class TransactionAuthFragment : BaseFragment<FragmentTransactionAuthBinding>() {
                     }
                 }
 
-                if(pinCode.length == 4 && pinCode == viewModel.pinCode.value?.userPinCode ?: null){
+                if (pinCode.length == 4 && pinCode == viewModel.pinCode.value?.userPinCode ?: null) {
+                    viewModel.insert(args.amount)
                     lifecycleScope.launch {
-                        showToastMessage("Uğurlu əməliyyat",FancyToast.SUCCESS)
+                        showToastMessage("Uğurlu əməliyyat", FancyToast.SUCCESS)
                         delay(1700)
-                        findNavController().navigate(TransactionAuthFragmentDirections.actionTransactionAuthFragmentToResponseMessageFragment(args.amount,"Ödəniş uğurlu bir şəkildə göndərildi"))
+                        findNavController().navigate(
+                            TransactionAuthFragmentDirections.actionTransactionAuthFragmentToResponseMessageFragment(
+                                args.amount,
+                                "Ödəniş uğurlu bir şəkildə göndərildi"
+                            )
+                        )
 
                     }
                 } else if (pinCode.length == 4) {
                     pinCode = ""
-                    showToastMessage("PIN kod doğru deyil",FancyToast.ERROR)
+                    showToastMessage("PIN kod doğru deyil", FancyToast.ERROR)
                     imageViewTransactionAuthEmpty1.setImageResource(R.drawable.empty_dot)
                     imageViewTransactionAuthEmpty2.setImageResource(R.drawable.empty_dot)
                     imageViewTransactionAuthEmpty3.setImageResource(R.drawable.empty_dot)

@@ -6,6 +6,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.alijan.tripay.databinding.FragmentSendCardBinding
 import com.alijan.tripay.ui.BaseFragment
+import com.alijan.tripay.utils.showFancyToast
+import com.shashank.sony.fancytoastlib.FancyToast
 
 class SendCardFragment : BaseFragment<FragmentSendCardBinding>() {
     private val args: SendCardFragmentArgs by navArgs()
@@ -23,7 +25,13 @@ class SendCardFragment : BaseFragment<FragmentSendCardBinding>() {
                 findNavController().popBackStack()
             }
             buttonSendCard.setOnClickListener {
-                findNavController().navigate(SendCardFragmentDirections.actionSendCardFragmentToTransactionAuthFragment(args.amount))
+                val cardHolder = binding.editTextSendCardHolder.text.toString().trim()
+                val cardNumber = binding.editTextSendCardNumber.text.toString().trim()
+                if(cardHolder.isNotEmpty() && cardNumber.length == 19){
+                    findNavController().navigate(SendCardFragmentDirections.actionSendCardFragmentToTransactionAuthFragment(args.amount))
+                } else {
+                    showToastMessage("Xanaları tam və doğru doldurun", FancyToast.WARNING)
+                }
             }
         }
     }
@@ -87,6 +95,10 @@ class SendCardFragment : BaseFragment<FragmentSendCardBinding>() {
             }
         })
 
+    }
+
+    private fun showToastMessage(message: String, type: Int) {
+        requireContext().showFancyToast(message, type)
     }
 
 }

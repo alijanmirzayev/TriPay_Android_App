@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.alijan.tripay.data.model.DTO.PinCodeLocalDTO
+import com.alijan.tripay.data.model.DTO.TransactionLocalDTO
 import com.alijan.tripay.data.model.DTO.UserLocalDTO
 
 @Dao
@@ -24,4 +25,10 @@ interface UserDao {
 
     @Query("SELECT * FROM pins WHERE user_id = :userId LIMIT 1")
     suspend fun getPinCodeByUserId(userId: Int): PinCodeLocalDTO?
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertTransaction(transaction: TransactionLocalDTO): Long
+
+    @Query("SELECT * FROM transactions WHERE user_id = :userId")
+    suspend fun getTransactionsByUserId(userId: Int): List<TransactionLocalDTO>
 }

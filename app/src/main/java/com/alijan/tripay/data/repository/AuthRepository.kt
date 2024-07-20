@@ -5,6 +5,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import com.alijan.tripay.data.model.DTO.PinCodeLocalDTO
+import com.alijan.tripay.data.model.DTO.TransactionLocalDTO
 import com.alijan.tripay.data.model.DTO.UserLocalDTO
 import com.alijan.tripay.data.source.local.RoomDatabase
 import com.alijan.tripay.utils.NetworkResponse
@@ -89,6 +90,28 @@ class AuthRepository @Inject constructor(
         return flow {
             try {
                 val response = roomDatabase.userDao().getPinCodeByUserId(userId)
+                emit(NetworkResponse.Success(response))
+            } catch (e: Exception) {
+                emit(NetworkResponse.Error(e.localizedMessage.toString()))
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
+    suspend fun insertTransaction(value: TransactionLocalDTO): Flow<NetworkResponse<Long>> {
+        return flow {
+            try {
+                val response = roomDatabase.userDao().insertTransaction(value)
+                emit(NetworkResponse.Success(response))
+            } catch (e: Exception) {
+                emit(NetworkResponse.Error(e.localizedMessage.toString()))
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
+    suspend fun getTransactionsByUserId(userId: Int): Flow<NetworkResponse<List<TransactionLocalDTO>>> {
+        return flow {
+            try {
+                val response = roomDatabase.userDao().getTransactionsByUserId(userId)
                 emit(NetworkResponse.Success(response))
             } catch (e: Exception) {
                 emit(NetworkResponse.Error(e.localizedMessage.toString()))

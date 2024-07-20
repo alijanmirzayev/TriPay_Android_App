@@ -32,7 +32,7 @@ class EnterPinFragment : BaseFragment<FragmentEnterPinBinding>() {
 
     private fun observe(){
         viewModel.error.observe(viewLifecycleOwner){
-            showToastMessage("Pin kod tapılmadı", FancyToast.ERROR)
+            showToastMessage(it.toString(), FancyToast.ERROR)
             findNavController().navigate(R.id.auth_nav)
         }
     }
