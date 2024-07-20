@@ -20,9 +20,13 @@ class HomeViewModel @Inject constructor(private val authRepository: AuthReposito
     private var _error = MutableLiveData<String>()
     val error: LiveData<String> get() = _error
 
-    fun getUserByUserId(id: Int){
+    init {
+        getUserByUserId()
+    }
+    private fun getUserByUserId(){
         viewModelScope.launch {
-            authRepository.getUserByUserId(id).collect {
+            val userId = authRepository.getUserIdFromDatastore()
+            authRepository.getUserByUserId(userId!!).collect {
                 when(it){
                     is NetworkResponse.Error -> {
                         it.message?.let { data->

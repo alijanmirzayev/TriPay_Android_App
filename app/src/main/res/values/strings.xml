@@ -28,7 +28,7 @@
     <string name="option">Seçimlər</string>
     <string name="done">Tamam</string>
     <string name="card">Kart</string>
-    <string name="cardDescription">Hesabınızdan debet kartınıza pul köçürün</string>
+    <string name="cardDescription">Hesabınızdan debet karta pul köçürün</string>
     <string name="cardInformation">Kart məlumatları</string>
     <string name="cardHolder">Kart sahibi</string>
     <string name="cardNumber">Kart nömrəsi</string>

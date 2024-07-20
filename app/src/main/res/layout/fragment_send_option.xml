@@ -45,6 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageViewOptionBack">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/buttonSendOptionCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -102,6 +103,7 @@
         app:layout_constraintTop_toBottomOf="@+id/viewSendOptionButtonCard">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/buttonSendOptionContact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 

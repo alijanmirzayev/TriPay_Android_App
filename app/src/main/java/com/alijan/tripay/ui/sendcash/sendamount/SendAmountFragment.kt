@@ -1,5 +1,6 @@
 package com.alijan.tripay.ui.sendcash.sendamount
 
+import androidx.navigation.fragment.findNavController
 import com.alijan.tripay.databinding.FragmentSendAmountBinding
 import com.alijan.tripay.ui.BaseFragment
 import com.alijan.tripay.ui.adapter.PinNumberAdapter
@@ -38,7 +39,14 @@ class SendAmountFragment : BaseFragment<FragmentSendAmountBinding>() {
                     }
                 }
             }
+            imageViewSendAmountClose.setOnClickListener {
+                findNavController().popBackStack()
+            }
+            buttonSendAmount.setOnClickListener {
+                findNavController().navigate(SendAmountFragmentDirections.actionSendAmountFragmentToSendOptionFragment(amount = amount.toFloat()))
+            }
         }
+
     }
 
 }

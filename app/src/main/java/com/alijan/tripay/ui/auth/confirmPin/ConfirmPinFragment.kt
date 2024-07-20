@@ -68,9 +68,7 @@ class ConfirmPinFragment : BaseFragment<FragmentConfirmPinBinding>() {
                     lifecycleScope.launch {
                         showToastMessage("Əsas səhifəyə yönləndirilirsiz.", FancyToast.SUCCESS)
                         delay(1700)
-                        val bundle = Bundle()
-                        bundle.putInt("userId", args.userId)
-                        findNavController().navigate(R.id.homeFragment, bundle)
+                        findNavController().navigate(ConfirmPinFragmentDirections.actionConfirmPinToHome())
                     }
                 } else if (pinCode.length == 4) {
                     pinCode = ""

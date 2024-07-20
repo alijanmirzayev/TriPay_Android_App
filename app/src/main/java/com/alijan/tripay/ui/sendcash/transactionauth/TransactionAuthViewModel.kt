@@ -1,4 +1,4 @@
-package com.alijan.tripay.ui.auth.enterPin
+package com.alijan.tripay.ui.sendcash.transactionauth
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class EnterPinViewModel @Inject constructor(private val authRepository: AuthRepository) :
+class TransactionAuthViewModel @Inject constructor(private val authRepository: AuthRepository) :
     ViewModel() {
 
     private var _pinCode = MutableLiveData<PinCodeLocalDTO?>()

@@ -30,7 +30,9 @@ class ConfirmViewModel @Inject constructor(private val authRepository: AuthRepos
             authRepository.getPinCodeByUserId(userId).collect{
                 when(it){
                     is NetworkResponse.Error -> {
-                        _error.value = it.message
+                        it.message?.let {
+                            _error.value = it
+                        }
                     }
                     is NetworkResponse.Success -> {
                         _pinCode.value = it.data
@@ -45,7 +47,9 @@ class ConfirmViewModel @Inject constructor(private val authRepository: AuthRepos
             authRepository.insertPinCode(value).collect{
                 when(it){
                     is NetworkResponse.Error -> {
-                        _error.value = it.message
+                        it.message?.let {
+                            _error.value = it
+                        }
                     }
                     is NetworkResponse.Success -> {
                         _isSuccess.value = true

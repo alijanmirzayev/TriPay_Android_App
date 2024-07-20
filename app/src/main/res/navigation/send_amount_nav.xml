@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/send_amount_nav"
+    app:startDestination="@id/sendAmountFragment">
+
+    <fragment
+        android:id="@+id/sendAmountFragment"
+        android:name="com.alijan.tripay.ui.sendcash.sendamount.SendAmountFragment"
+        android:label="SendAmountFragment" >
+        <action
+            android:id="@+id/action_sendAmountFragment_to_sendOptionFragment"
+            app:destination="@id/sendOptionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sendOptionFragment"
+        android:name="com.alijan.tripay.ui.sendcash.sendoption.SendOptionFragment"
+        android:label="fragment_send_option"
+        tools:layout="@layout/fragment_send_option" >
+        <action
+            android:id="@+id/action_sendOptionFragment_to_sendCardFragment"
+            app:destination="@id/sendCardFragment" />
+        <action
+            android:id="@+id/action_sendOptionFragment_to_receiverFragment"
+            app:destination="@id/receiverFragment" />
+        <argument
+            android:name="amount"
+            app:argType="float" />
+    </fragment>
+    <fragment
+        android:id="@+id/sendCardFragment"
+        android:name="com.alijan.tripay.ui.sendcash.sendcard.SendCardFragment"
+        android:label="fragment_send_card"
+        tools:layout="@layout/fragment_send_card" >
+        <action
+            android:id="@+id/action_sendCardFragment_to_transactionAuthFragment"
+            app:destination="@id/transactionAuthFragment" />
+        <argument
+            android:name="amount"
+            app:argType="float" />
+    </fragment>
+    <fragment
+        android:id="@+id/receiverFragment"
+        android:name="com.alijan.tripay.ui.sendcash.receiver.ReceiverFragment"
+        android:label="fragment_receiver"
+        tools:layout="@layout/fragment_receiver" >
+        <action
+            android:id="@+id/action_receiverFragment_to_transactionAuthFragment"
+            app:destination="@id/transactionAuthFragment" />
+        <argument
+            android:name="amount"
+            app:argType="float" />
+    </fragment>
+    <fragment
+        android:id="@+id/transactionAuthFragment"
+        android:name="com.alijan.tripay.ui.sendcash.transactionauth.TransactionAuthFragment"
+        android:label="fragment_transaction_auth"
+        tools:layout="@layout/fragment_transaction_auth" >
+        <action
+            android:id="@+id/action_transactionAuthFragment_to_responseMessageFragment"
+            app:destination="@id/responseMessageFragment" />
+        <argument
+            android:name="amount"
+            app:argType="float" />
+    </fragment>
+    <fragment
+        android:id="@+id/responseMessageFragment"
+        android:name="com.alijan.tripay.ui.responsemessage.ResponseMessageFragment"
+        android:label="fragment_response_message"
+        tools:layout="@layout/fragment_response_message" >
+        <argument
+            android:name="amount"
+            app:argType="float" />
+        <argument
+            android:name="message"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_sendAmount_to_home"
+            app:popUpTo="@id/sendAmountFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

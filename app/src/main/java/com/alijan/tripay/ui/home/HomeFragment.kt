@@ -1,6 +1,7 @@
 package com.alijan.tripay.ui.home
 
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.alijan.tripay.R
 import com.alijan.tripay.data.model.Service
@@ -12,7 +13,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private val viewModel by viewModels<HomeViewModel>()
-    private val args: HomeFragmentArgs by navArgs()
     private val serviceAdapter = ServiceAdapter()
     private val serviceList = arrayListOf(
         Service(R.drawable.icon_sim_service,"Mobil"),
@@ -20,19 +20,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         Service(R.drawable.icon_gas_service,"Qaz"),
         Service(R.drawable.icon_water_service,"Su")
     )
-
-
     override fun layoutInflater(): FragmentHomeBinding = FragmentHomeBinding.inflate(layoutInflater)
 
     override fun setupUI() {
         observe()
-        request()
         setAdapter()
+        buttonClick()
     }
 
-    private fun request(){
-        viewModel.getUserByUserId(args.userId)
-    }
 
     private fun observe(){
         viewModel.user.observe(viewLifecycleOwner){
@@ -44,6 +39,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private fun setAdapter(){
         binding.rvHomeServices.adapter = serviceAdapter
         serviceAdapter.updateList(serviceList)
+    }
+
+    private fun buttonClick(){
+        with(binding){
+            buttonHomeSendCash.setOnClickListener {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSendAmountNav())
+            }
+        }
     }
 
 }

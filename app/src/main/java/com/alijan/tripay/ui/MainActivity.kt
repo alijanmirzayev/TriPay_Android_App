@@ -30,13 +30,6 @@ class MainActivity : AppCompatActivity() {
     private fun setupNavigation() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         navController = navHostFragment.navController
-        lifecycleScope.launch {
-            val response = authRepository.getUserIdFromDatastore()
-            if(response != null){
-                navController.navigate(R.id.enterPinFragment)
-            } else {
-                navController.navigate(R.id.onboarding_nav)
-            }
-        }
+
     }
 }

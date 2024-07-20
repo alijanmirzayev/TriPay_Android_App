@@ -1,5 +1,6 @@
 package com.alijan.tripay.ui.auth.enterPin
 
+import android.os.Bundle
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -68,8 +69,7 @@ class EnterPinFragment : BaseFragment<FragmentEnterPinBinding>() {
                     lifecycleScope.launch {
                         showToastMessage("Uğurlu giriş",FancyToast.SUCCESS)
                         delay(1700)
-                        findNavController().navigate(EnterPinFragmentDirections.actionEnterPinFragmentToHomeFragment(viewModel.pinCode.value?.userId ?: 0))
-
+                        findNavController().navigate(EnterPinFragmentDirections.actionSecurityToHome())
                     }
                 } else if (pinCode.length == 4) {
                     pinCode = ""
