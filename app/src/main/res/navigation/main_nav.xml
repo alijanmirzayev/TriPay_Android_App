@@ -3,71 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@id/rechargeFragment">
-
+    app:startDestination="@id/enterPinFragment">
+    <include app:graph="@navigation/onboarding_nav" />
+    <include app:graph="@navigation/auth_nav" />
     <fragment
-        android:id="@+id/onboardingFragment"
-        android:name="com.alijan.tripay.ui.onboarding.OnboardingFragment"
-        android:label="fragment_onboarding"
-        tools:layout="@layout/fragment_onboarding" />
-    <fragment
-        android:id="@+id/registrationFragment"
-        android:name="com.alijan.tripay.ui.auth.registration.RegistrationFragment"
-        android:label="fragment_registration"
-        tools:layout="@layout/fragment_registration" />
-    <fragment
-        android:id="@+id/createPinFragment"
-        android:name="com.alijan.tripay.ui.auth.createPin.CreatePinFragment"
-        android:label="fragment_create_pin"
-        tools:layout="@layout/fragment_create_pin" />
-    <fragment
-        android:id="@+id/confirmPinFragment"
-        android:name="com.alijan.tripay.ui.auth.confirmPin.ConfirmPinFragment"
-        android:label="fragment_confirm_pin"
-        tools:layout="@layout/fragment_confirm_pin" />
-    <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.alijan.tripay.ui.home.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
-    <fragment
-        android:id="@+id/transactionAuthFragment"
-        android:name="com.alijan.tripay.ui.sendcash.transactionauth.TransactionAuthFragment"
-        android:label="fragment_transaction_auth"
-        tools:layout="@layout/fragment_transaction_auth" />
-    <fragment
-        android:id="@+id/sendAmountFragment"
-        android:name="com.alijan.tripay.ui.sendcash.sendamount.SendAmountFragment"
-        android:label="fragment_send_amount"
-        tools:layout="@layout/fragment_send_amount" />
-    <fragment
-        android:id="@+id/sendOptionFragment"
-        android:name="com.alijan.tripay.ui.sendcash.sendoption.SendOptionFragment"
-        android:label="fragment_send_option"
-        tools:layout="@layout/fragment_send_option" />
-    <fragment
-        android:id="@+id/responseMessageFragment"
-        android:name="com.alijan.tripay.ui.responsemessage.ResponseMessageFragment"
-        android:label="fragment_response_message"
-        tools:layout="@layout/fragment_response_message" />
-    <fragment
-        android:id="@+id/sendCardFragment"
-        android:name="com.alijan.tripay.ui.sendcash.sendcard.SendCardFragment"
-        android:label="fragment_send_card"
-        tools:layout="@layout/fragment_send_card" />
-    <fragment
-        android:id="@+id/receiverFragment"
-        android:name="com.alijan.tripay.ui.sendcash.receiver.ReceiverFragment"
-        android:label="fragment_receiver"
-        tools:layout="@layout/fragment_receiver" />
-    <fragment
-        android:id="@+id/receiverMessageFragment"
-        android:name="com.alijan.tripay.ui.sendcash.receivermessage.ReceiverMessageFragment"
-        android:label="fragment_receiver_message"
-        tools:layout="@layout/fragment_receiver_message" />
-    <fragment
-        android:id="@+id/rechargeFragment"
-        android:name="com.alijan.tripay.ui.services.recharge.RechargeFragment"
-        android:label="fragment_recharge"
-        tools:layout="@layout/fragment_recharge" />
+        android:id="@+id/enterPinFragment"
+        android:name="com.alijan.tripay.ui.auth.enterPin.EnterPinFragment"
+        android:label="fragment_enter_pin"
+        tools:layout="@layout/fragment_enter_pin" />
 </navigation>
