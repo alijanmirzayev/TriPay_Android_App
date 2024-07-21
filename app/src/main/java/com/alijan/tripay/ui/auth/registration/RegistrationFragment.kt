@@ -1,13 +1,11 @@
 package com.alijan.tripay.ui.auth.registration
 
-import android.content.Context
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.alijan.tripay.data.model.DTO.UserLocalDTO
 import com.alijan.tripay.databinding.FragmentRegistrationBinding
 import com.alijan.tripay.ui.BaseFragment
-import com.alijan.tripay.ui.auth.login.LoginFragmentDirections
 import com.alijan.tripay.utils.showFancyToast
 import com.shashank.sony.fancytoastlib.FancyToast
 import dagger.hilt.android.AndroidEntryPoint
@@ -44,11 +42,24 @@ class RegistrationFragment : BaseFragment<FragmentRegistrationBinding>() {
                 findNavController().popBackStack()
             }
             buttonRegistration.setOnClickListener {
-                val name =  editTextRegistrationName.text.toString().trim()
+                val name = editTextRegistrationName.text.toString().trim()
                 val mail = editTextRegistrationEmail.text.toString().trim()
                 val phoneNumber = "+994${editTextRegistrationPhoneNumber.text.toString().trim()}"
-                val value = UserLocalDTO(userName = name, userMail = mail, userPhoneNumber = phoneNumber, userBalance = 20.00)
-                viewModel.insertUser(value)
+                if (phoneNumber.length == 13 && mail.isNotEmpty() && name.isNotEmpty()) {
+                    if(checkBox.isChecked){
+                        val value = UserLocalDTO(
+                            userName = name,
+                            userMail = mail,
+                            userPhoneNumber = phoneNumber,
+                            userBalance = 20.00
+                        )
+                        viewModel.insertUser(value)
+                    } else {
+                        showToastMessage("Qaydalar qəbul edin", FancyToast.WARNING)
+                    }
+                } else {
+                    showToastMessage("Xanaları tam və düzgün doldurun", FancyToast.WARNING)
+                }
             }
         }
     }

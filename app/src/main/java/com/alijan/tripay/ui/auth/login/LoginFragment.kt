@@ -27,12 +27,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                 lifecycleScope.launch {
                     if(it != null){
                         showToastMessage("Uğurlu giriş!", FancyToast.SUCCESS)
-
                         delay(1700)
                         it.userId?.let { userId ->
                             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToCreatePinFragment(userId))
                         }
-
                     } else if (it == null) {
                         showToastMessage("E-mail adresi vəya nömrə yanlışdır!", FancyToast.ERROR)
                     }
@@ -49,7 +47,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             buttonLogin.setOnClickListener {
                 val phoneNumber = "+994${editTextLoginPhoneNumber.text.toString().trim()}"
                 val mail = editTextLoginEmail.text.toString().trim()
-                viewModel.getUserByPhoneNumberAndMail(phoneNumber, mail)
+                if(phoneNumber.length == 13 && mail.isNotEmpty()){
+                    viewModel.getUserByPhoneNumberAndMail(phoneNumber, mail)
+                } else {
+                    showToastMessage("Xanaları tam və düzgün doldurun", FancyToast.WARNING)
+                }
             }
         }
     }
