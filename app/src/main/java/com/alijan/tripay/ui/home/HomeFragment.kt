@@ -65,6 +65,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 "Qaz" -> {
                     findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToGasFragment())
                 }
+                "Su" -> {
+                    findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToWaterFragment())
+                }
             }
         }
     }

@@ -51,7 +51,7 @@ class RegistrationFragment : BaseFragment<FragmentRegistrationBinding>() {
                             userName = name,
                             userMail = mail,
                             userPhoneNumber = phoneNumber,
-                            userBalance = 20.00
+                            userBalance = 0.00
                         )
                         viewModel.insertUser(value)
                     } else {

@@ -56,4 +56,5 @@
     <string name="chooseOperator">Operatoru seç</string>
     <string name="serviceCode">Abonent kodu</string>
     <string name="enterServiceCode">Abonent kodu daxil edin</string>
+    <string name="paymentWater">Su ödənişi</string>
 </resources>

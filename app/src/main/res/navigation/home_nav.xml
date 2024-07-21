@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_homeFragment_to_gasFragment"
             app:destination="@id/gasFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_waterFragment"
+            app:destination="@id/waterFragment" />
     </fragment>
     <include app:graph="@navigation/send_amount_nav" />
     <include app:graph="@navigation/add_amount_nav" />
@@ -82,6 +85,15 @@
         tools:layout="@layout/fragment_gas" >
         <action
             android:id="@+id/action_gasFragment_to_confirmationFragment"
+            app:destination="@id/confirmationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/waterFragment"
+        android:name="com.alijan.tripay.ui.services.water.WaterFragment"
+        android:label="fragment_water"
+        tools:layout="@layout/fragment_water" >
+        <action
+            android:id="@+id/action_waterFragment_to_confirmationFragment"
             app:destination="@id/confirmationFragment" />
     </fragment>
 </navigation>

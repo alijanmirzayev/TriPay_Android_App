@@ -1,23 +1,23 @@
-package com.alijan.tripay.ui.services.gas
+package com.alijan.tripay.ui.services.water
 
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.alijan.tripay.databinding.FragmentGasBinding
+import com.alijan.tripay.databinding.FragmentWaterBinding
 import com.alijan.tripay.ui.BaseFragment
 import com.alijan.tripay.ui.adapter.BrandAdapter
-import com.alijan.tripay.ui.services.electric.ElectricFragmentDirections
+import com.alijan.tripay.ui.services.gas.GasFragmentDirections
 import com.alijan.tripay.utils.showFancyToast
 import com.shashank.sony.fancytoastlib.FancyToast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class GasFragment : BaseFragment<FragmentGasBinding>() {
-    private val viewModel by viewModels<GasViewModel>()
+class WaterFragment : BaseFragment<FragmentWaterBinding>() {
+    private val viewModel by viewModels<WaterViewModel>()
     private val brandAdapter = BrandAdapter()
     private var selectedBrand = ""
 
-    override fun layoutInflater(): FragmentGasBinding =
-        FragmentGasBinding.inflate(layoutInflater)
+    override fun layoutInflater(): FragmentWaterBinding =
+        FragmentWaterBinding.inflate(layoutInflater)
 
     override fun setupUI() {
         setAdapter()
@@ -26,7 +26,7 @@ class GasFragment : BaseFragment<FragmentGasBinding>() {
     }
 
     private fun setAdapter() {
-        binding.rvGas.adapter = brandAdapter
+        binding.rvWater.adapter = brandAdapter
         brandAdapter.onClick = {
             selectedBrand = it
         }
@@ -40,15 +40,15 @@ class GasFragment : BaseFragment<FragmentGasBinding>() {
 
     private fun buttonClickListener() {
         with(binding) {
-            imageViewGasBack.setOnClickListener {
+            imageViewWaterBack.setOnClickListener {
                 findNavController().popBackStack()
             }
-            buttonGas.setOnClickListener {
-                val amount = editTextGasAmount.text.toString().trim()
-                val number = editTextGasNumber.text.toString().trim()
+            buttonWater.setOnClickListener {
+                val amount = editTextWaterAmount.text.toString().trim()
+                val number = editTextWaterNumber.text.toString().trim()
                 if (amount.isNotEmpty() && number.length > 5 && selectedBrand != "") {
                     findNavController().navigate(
-                        GasFragmentDirections.actionGasFragmentToConfirmationFragment(
+                        WaterFragmentDirections.actionWaterFragmentToConfirmationFragment(
                             amount = amount.toFloat(),
                             serviceCode = number,
                             serviceBrand = selectedBrand
