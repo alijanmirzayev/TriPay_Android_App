@@ -11,4 +11,5 @@ data class TransactionLocalDTO(
     @ColumnInfo(name = "user_id") val userId: Int,
     @ColumnInfo(name = "transaction_amount") val amount: Double,
     @ColumnInfo(name = "transaction_type") val type: String,
+    @ColumnInfo(name = "transaction_description") val description: String,
 )

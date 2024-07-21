@@ -28,7 +28,7 @@ class SendCardFragment : BaseFragment<FragmentSendCardBinding>() {
                 val cardHolder = binding.editTextSendCardHolder.text.toString().trim()
                 val cardNumber = binding.editTextSendCardNumber.text.toString().trim()
                 if(cardHolder.isNotEmpty() && cardNumber.length == 19){
-                    findNavController().navigate(SendCardFragmentDirections.actionSendCardFragmentToTransactionAuthFragment(args.amount))
+                    findNavController().navigate(SendCardFragmentDirections.actionSendCardFragmentToTransactionAuthFragment(args.amount, extractLastFourDigits(cardNumber)))
                 } else {
                     showToastMessage("Xanaları tam və doğru doldurun", FancyToast.WARNING)
                 }
@@ -100,5 +100,15 @@ class SendCardFragment : BaseFragment<FragmentSendCardBinding>() {
     private fun showToastMessage(message: String, type: Int) {
         requireContext().showFancyToast(message, type)
     }
+
+    private fun extractLastFourDigits(input: String): String {
+        val digits = input.filter { it.isDigit() }
+        return if (digits.length >= 4) {
+            digits.takeLast(4)
+        } else {
+            "0000"
+        }
+    }
+
 
 }

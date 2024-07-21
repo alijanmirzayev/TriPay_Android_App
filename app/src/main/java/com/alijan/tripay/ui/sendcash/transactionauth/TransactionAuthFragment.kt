@@ -67,7 +67,7 @@ class TransactionAuthFragment : BaseFragment<FragmentTransactionAuthBinding>() {
                 }
 
                 if (pinCode.length == 4 && pinCode == viewModel.pinCode.value?.userPinCode ?: null) {
-                    viewModel.insert(args.amount)
+                    viewModel.insert(args.amount,args.cardNumber)
                     lifecycleScope.launch {
                         showToastMessage("Uğurlu əməliyyat", FancyToast.SUCCESS)
                         delay(1700)

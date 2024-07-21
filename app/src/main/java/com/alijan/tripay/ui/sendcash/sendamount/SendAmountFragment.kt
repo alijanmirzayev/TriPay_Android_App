@@ -51,7 +51,7 @@ class SendAmountFragment : BaseFragment<FragmentSendAmountBinding>() {
             }
             buttonSendAmount.setOnClickListener {
                 if(amount != ""){
-                    if (viewModel.user.value?.userBalance ?: 0.00 >= amount.toFloat()) {
+                    if (viewModel.user.value?.userBalance ?: 0.00 > amount.toDouble()) {
                             findNavController().navigate(
                                 SendAmountFragmentDirections.actionSendAmountFragmentToSendOptionFragment(
                                     amount = amount.toFloat()

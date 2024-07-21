@@ -63,6 +63,9 @@
         <argument
             android:name="amount"
             app:argType="float" />
+        <argument
+            android:name="cardNumber"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/responseMessageFragment"

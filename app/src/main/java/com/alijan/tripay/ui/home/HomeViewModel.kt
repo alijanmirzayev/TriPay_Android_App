@@ -28,7 +28,7 @@ class HomeViewModel @Inject constructor(private val authRepository: AuthReposito
         getUserByUserId()
         getTransactionsByUserId()
     }
-    private fun getUserByUserId(){
+    fun getUserByUserId(){
         viewModelScope.launch {
             val userId = authRepository.getUserIdFromDatastore()
             authRepository.getUserByUserId(userId!!).collect {
@@ -48,7 +48,7 @@ class HomeViewModel @Inject constructor(private val authRepository: AuthReposito
         }
     }
 
-    private fun getTransactionsByUserId(){
+    fun getTransactionsByUserId(){
         viewModelScope.launch {
             val userId = authRepository.getUserIdFromDatastore()
             authRepository.getTransactionsByUserId(userId!!).collect {
