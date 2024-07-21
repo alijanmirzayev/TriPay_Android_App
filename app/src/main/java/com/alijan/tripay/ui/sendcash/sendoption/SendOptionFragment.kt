@@ -21,9 +21,6 @@ class SendOptionFragment : BaseFragment<FragmentSendOptionBinding>() {
             buttonSendOptionCard.setOnClickListener {
                 findNavController().navigate(SendOptionFragmentDirections.actionSendOptionFragmentToSendCardFragment(args.amount))
             }
-            buttonSendOptionContact.setOnClickListener {
-                findNavController().navigate(SendOptionFragmentDirections.actionSendOptionFragmentToReceiverFragment(args.amount))
-            }
         }
     }
 
