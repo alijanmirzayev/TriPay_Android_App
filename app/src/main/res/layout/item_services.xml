@@ -10,10 +10,11 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clItemService"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:layout_marginRight="14dp">
+        android:layout_marginRight="14dp"
+        android:clickable="true">
 
         <View
             android:id="@+id/viewItemService"
@@ -30,11 +31,11 @@
             android:id="@+id/imageViewItemService"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:setImageFromLocal="@{item.icon}"
             app:layout_constraintBottom_toBottomOf="@+id/viewItemService"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:setImageFromLocal="@{item.icon}"
             app:srcCompat="@drawable/icon_sim_service" />
 
         <TextView

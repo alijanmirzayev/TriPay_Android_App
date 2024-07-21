@@ -27,6 +27,8 @@ class TransactionAdapter : RecyclerView.Adapter<TransactionAdapter.TransactionVi
         holder.itemTransactionBinding.item = currentItem
         if(currentItem.type == "Balans artırıldı"){
             holder.itemTransactionBinding.imageViewTransaction.setImageResource(R.drawable.icon_add_amount)
+        } else {
+            holder.itemTransactionBinding.imageViewTransaction.setImageResource(R.drawable.icon_send_amount)
         }
     }
 

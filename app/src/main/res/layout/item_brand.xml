@@ -11,8 +11,10 @@
     </data>
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardViewItemBrand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp"
         android:layout_marginRight="16dp"
         app:cardElevation="0dp"
         android:background="@color/white"
@@ -20,22 +22,24 @@
         app:cardCornerRadius="10dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clItemBrand"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/white">
 
             <ImageView
                 android:id="@+id/imageViewItemBrand"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                app:setImageFromLocal="@{item.image}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:setImageFromLocal="@{item.image}"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView

@@ -9,6 +9,7 @@ import com.alijan.tripay.databinding.ItemServicesBinding
 class ServiceAdapter : RecyclerView.Adapter<ServiceAdapter.ServiceViewHolder>() {
 
     private val itemList = ArrayList<Service>()
+    lateinit var onClick: (title: String) -> Unit
 
     inner class ServiceViewHolder(val itemServicesBinding: ItemServicesBinding) :
         RecyclerView.ViewHolder(itemServicesBinding.root)
@@ -23,6 +24,9 @@ class ServiceAdapter : RecyclerView.Adapter<ServiceAdapter.ServiceViewHolder>() 
     override fun onBindViewHolder(holder: ServiceViewHolder, position: Int) {
         val currentItem = itemList[position]
         holder.itemServicesBinding.item = currentItem
+        holder.itemServicesBinding.clItemService.setOnClickListener {
+            onClick(currentItem.title)
+        }
     }
 
     fun updateList(newList: List<Service>) {

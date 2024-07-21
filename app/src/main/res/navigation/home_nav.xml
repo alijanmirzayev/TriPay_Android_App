@@ -8,14 +8,56 @@
         android:id="@+id/homeFragment"
         android:name="com.alijan.tripay.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_send_amount_nav"
             app:destination="@id/send_amount_nav" />
         <action
             android:id="@+id/action_homeFragment_to_add_amount_nav"
             app:destination="@id/add_amount_nav" />
+        <action
+            android:id="@+id/action_homeFragment_to_rechargeFragment"
+            app:destination="@id/rechargeFragment" />
     </fragment>
     <include app:graph="@navigation/send_amount_nav" />
     <include app:graph="@navigation/add_amount_nav" />
+    <fragment
+        android:id="@+id/rechargeFragment"
+        android:name="com.alijan.tripay.ui.services.recharge.RechargeFragment"
+        android:label="fragment_recharge"
+        tools:layout="@layout/fragment_recharge">
+        <action
+            android:id="@+id/action_rechargeFragment_to_confirmationFragment"
+            app:destination="@id/confirmationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmationFragment"
+        android:name="com.alijan.tripay.ui.services.ConfirmationFragment"
+        android:label="fragment_confirmation"
+        tools:layout="@layout/fragment_confirmation">
+        <argument
+            android:name="amount"
+            app:argType="float" />
+        <argument
+            android:name="serviceCode"
+            app:argType="string" />
+        <argument
+            android:name="serviceBrand"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_confirmationFragment_to_responseServiceFragment"
+            app:destination="@id/responseServiceFragment"
+            app:popUpTo="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/responseServiceFragment"
+        android:name="com.alijan.tripay.ui.services.response.ResponseServiceFragment"
+        android:label="fragment_response_service"
+        tools:layout="@layout/fragment_response_service">
+        <action
+            android:id="@+id/action_responseServiceFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/responseServiceFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

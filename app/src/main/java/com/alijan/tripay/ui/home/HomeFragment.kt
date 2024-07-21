@@ -12,6 +12,7 @@ import com.alijan.tripay.utils.showFancyToast
 import com.alijan.tripay.utils.toTransactionModelList
 import com.shashank.sony.fancytoastlib.FancyToast
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.DecimalFormat
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
@@ -37,7 +38,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private fun observe() {
         viewModel.user.observe(viewLifecycleOwner) {
             binding.name = it?.userName
-            binding.balance = it?.userBalance
+            binding.balance = it?.userBalance?.let { it1 -> formatBalance(it1) }
         }
         viewModel.transaction.observe(viewLifecycleOwner) {
             if (it != null) {
@@ -53,6 +54,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         binding.rvHomeServices.adapter = serviceAdapter
         binding.rvHomeRecentTransaction.adapter = transactionAdapter
         serviceAdapter.updateList(serviceList)
+        serviceAdapter.onClick = {
+            when(it){
+                "Mobil" -> {
+                    findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToRechargeFragment())
+                }
+            }
+        }
     }
 
     private fun buttonClick() {
@@ -69,6 +77,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private fun showToastMessage(message: String, type: Int) {
         requireContext().showFancyToast(message, type)
     }
+
+    fun formatBalance(amount: Double): Double {
+        val decimalFormat = DecimalFormat("#.##")
+        return decimalFormat.format(amount).toDouble()
+    }
+
 
     override fun onResume() {
         super.onResume()

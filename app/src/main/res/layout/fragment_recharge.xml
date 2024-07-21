@@ -47,15 +47,14 @@
         android:id="@+id/rvRecharge"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:clipToPadding="true"
         android:orientation="horizontal"
         android:paddingLeft="24dp"
-        android:clipToPadding="true"
-        tools:listitem="@layout/item_brand"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewRechargeOperator" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewRechargeOperator"
+        tools:listitem="@layout/item_brand" />
 
     <TextView
         android:id="@+id/textViewRechargeMobileNumber"
@@ -119,12 +118,12 @@
         android:layout_height="56dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
-        android:inputType="numberDecimal"
         android:background="@drawable/bg_input_dark"
         android:fontFamily="@font/dmsans_semibold"
         android:gravity="center"
+        android:hint="0.00"
+        android:inputType="numberDecimal"
         android:maxLength="9"
-        android:hint="₼0.00"
         android:padding="8dp"
         android:paddingHorizontal="16dp"
         android:textColor="@color/black_3B"
@@ -135,7 +134,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewRechargeAmount" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonSendCard"
+        android:id="@+id/buttonRecharge"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"

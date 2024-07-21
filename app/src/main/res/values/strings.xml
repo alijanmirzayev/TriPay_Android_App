@@ -47,4 +47,8 @@
     <string name="phoneNumberDesc">Mobil nömrəni daxil edin</string>
     <string name="enterAmount">Məbləği daxil edin</string>
     <string name="continueText">Davam et</string>
+    <string name="areYouSure">Əminsiniz?</string>
+    <string name="areYouSurePayment">Zəhmət olmasa ödəniş etmək istədiyinizdən əmin olun</string>
+    <string name="successPayment">Uğurlu əməliyyat</string>
+    <string name="successPaymentDescription">Əməliyyatınız uğurla yerinə yetirildi</string>
 </resources>
