@@ -62,6 +62,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 "Elektrik" -> {
                     findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToElectricFragment())
                 }
+                "Qaz" -> {
+                    findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToGasFragment())
+                }
             }
         }
     }
