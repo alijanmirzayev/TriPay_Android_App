@@ -45,7 +45,7 @@ class RechargeFragment : BaseFragment<FragmentRechargeBinding>() {
             buttonRecharge.setOnClickListener {
                 val amount = editTextRechargeAmount.text.toString().trim()
                 val phoneNumber = editTextRechargePhoneNumber.text.toString().trim()
-                if (amount.isNotEmpty() && phoneNumber.length == 9 && selectedBrand != "") {
+                if (amount.toDouble() != 0.0 && amount.isNotEmpty() && phoneNumber.length == 9 && selectedBrand != "") {
                     findNavController().navigate(
                         RechargeFragmentDirections.actionRechargeFragmentToConfirmationFragment(
                             amount = amount.toFloat(),

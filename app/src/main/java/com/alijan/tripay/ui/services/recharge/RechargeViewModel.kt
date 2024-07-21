@@ -11,9 +11,9 @@ import javax.inject.Inject
 @HiltViewModel
 class RechargeViewModel @Inject constructor() : ViewModel() {
     private val listRechargeBrands = arrayListOf(
-        Brand("Azercell", R.drawable.icon_azerbaijan),
-        Brand("Bakcell", R.drawable.icon_azerbaijan),
-        Brand("Nar", R.drawable.icon_azerbaijan),
+        Brand("Azercell", R.drawable.img_azercell),
+        Brand("Bakcell", R.drawable.img_bakcell),
+        Brand("Nar", R.drawable.img_nar),
     )
 
     private var _brands = MutableLiveData<List<Brand>>()
