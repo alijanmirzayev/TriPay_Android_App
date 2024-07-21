@@ -60,6 +60,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             buttonHomeSendCash.setOnClickListener {
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSendAmountNav())
             }
+            buttonHomeAddFund.setOnClickListener {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToAddAmountNav())
+            }
         }
     }
 

@@ -12,6 +12,10 @@
         <action
             android:id="@+id/action_homeFragment_to_send_amount_nav"
             app:destination="@id/send_amount_nav" />
+        <action
+            android:id="@+id/action_homeFragment_to_add_amount_nav"
+            app:destination="@id/add_amount_nav" />
     </fragment>
     <include app:graph="@navigation/send_amount_nav" />
+    <include app:graph="@navigation/add_amount_nav" />
 </navigation>

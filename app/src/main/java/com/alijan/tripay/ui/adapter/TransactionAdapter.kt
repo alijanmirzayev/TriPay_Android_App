@@ -3,6 +3,7 @@ package com.alijan.tripay.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.alijan.tripay.R
 import com.alijan.tripay.data.model.Transaction
 import com.alijan.tripay.databinding.ItemTransactionBinding
 
@@ -24,6 +25,9 @@ class TransactionAdapter : RecyclerView.Adapter<TransactionAdapter.TransactionVi
     override fun onBindViewHolder(holder: TransactionViewHolder, position: Int) {
         val currentItem = itemList[position]
         holder.itemTransactionBinding.item = currentItem
+        if(currentItem.type == "Balans artırıldı"){
+            holder.itemTransactionBinding.imageViewTransaction.setImageResource(R.drawable.icon_add_amount)
+        }
     }
 
     fun updateList(newList: List<Transaction>) {

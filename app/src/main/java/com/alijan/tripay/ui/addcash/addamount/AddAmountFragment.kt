@@ -1,23 +1,19 @@
-package com.alijan.tripay.ui.sendcash.sendamount
+package com.alijan.tripay.ui.addcash.addamount
 
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.alijan.tripay.databinding.FragmentSendAmountBinding
+import com.alijan.tripay.databinding.FragmentAddAmountBinding
 import com.alijan.tripay.ui.BaseFragment
 import com.alijan.tripay.ui.adapter.PinNumberAdapter
 import com.alijan.tripay.utils.showFancyToast
 import com.shashank.sony.fancytoastlib.FancyToast
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
-class SendAmountFragment : BaseFragment<FragmentSendAmountBinding>() {
-    private val viewModel by viewModels<SendAmountViewModel>()
+class AddAmountFragment : BaseFragment<FragmentAddAmountBinding>() {
     private val pinNumberAdapter = PinNumberAdapter()
     private val numberList = arrayListOf("1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "0", "✖")
     private var amount = ""
 
-    override fun layoutInflater(): FragmentSendAmountBinding =
-        FragmentSendAmountBinding.inflate(layoutInflater)
+    override fun layoutInflater(): FragmentAddAmountBinding =
+        FragmentAddAmountBinding.inflate(layoutInflater)
 
     override fun setupUI() {
         setAdapter()
@@ -26,7 +22,7 @@ class SendAmountFragment : BaseFragment<FragmentSendAmountBinding>() {
 
     private fun setAdapter() {
         binding.item = "0"
-        binding.rvSendAmount.adapter = pinNumberAdapter
+        binding.rvAddAmount.adapter = pinNumberAdapter
         pinNumberAdapter.updateList(numberList)
     }
 
@@ -45,20 +41,16 @@ class SendAmountFragment : BaseFragment<FragmentSendAmountBinding>() {
                     }
                 }
             }
-            imageViewSendAmountClose.setOnClickListener {
+            imageViewAddAmountClose.setOnClickListener {
                 findNavController().popBackStack()
             }
-            buttonSendAmount.setOnClickListener {
-                if(amount != ""){
-                    if (viewModel.user.value?.userBalance ?: 0.00 > amount.toDouble()) {
-                            findNavController().navigate(
-                                SendAmountFragmentDirections.actionSendAmountFragmentToSendOptionFragment(
-                                    amount = amount.toFloat()
-                                )
-                            )
-                    } else {
-                        showToastMessage("Balansınızda kifayət qədər məbləğ yoxdur", FancyToast.WARNING)
-                    }
+            buttonAddAmount.setOnClickListener {
+                if (amount != "") {
+                    findNavController().navigate(
+                        AddAmountFragmentDirections.actionAddAmountFragmentToAddOptionFragment(
+                            amount = amount.toFloat()
+                        )
+                    )
                 } else {
                     showToastMessage("Məbləğ daxil edin", FancyToast.WARNING)
                 }

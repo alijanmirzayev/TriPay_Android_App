@@ -1,0 +1,70 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.addcash.responsemessageadd.ResponseMessageAddFragment">
+
+    <ImageView
+        android:id="@+id/imageViewResponseMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_success"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineResponse" />
+
+    <TextView
+        android:id="@+id/textViewResponseMessageAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/dmsans_bold"
+        android:text="$200"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewResponseMessage"
+        app:layout_constraintStart_toStartOf="@+id/imageViewResponseMessage"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewResponseMessage" />
+
+    <TextView
+        android:id="@+id/textViewResponseMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/dmsans_regular"
+        android:text="Sent to Ademola Odeku"
+        android:textColor="@color/grey_8E"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewResponseMessageAmount"
+        app:layout_constraintStart_toStartOf="@+id/textViewResponseMessageAmount"
+        app:layout_constraintTop_toBottomOf="@+id/textViewResponseMessageAmount" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonResponseMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/green_8F"
+        android:fontFamily="@font/dmsans_regular"
+        android:paddingVertical="18dp"
+        android:text="@string/done"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineResponse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.33" />
+</androidx.constraintlayout.widget.ConstraintLayout>

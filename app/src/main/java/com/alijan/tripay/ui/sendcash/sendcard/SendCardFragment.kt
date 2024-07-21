@@ -110,5 +110,4 @@ class SendCardFragment : BaseFragment<FragmentSendCardBinding>() {
         }
     }
 
-
 }
