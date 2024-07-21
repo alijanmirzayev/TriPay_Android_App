@@ -55,7 +55,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         binding.rvHomeRecentTransaction.adapter = transactionAdapter
         serviceAdapter.updateList(serviceList)
         serviceAdapter.onClick = {
-            when(it){
+            when (it) {
                 "Mobil" -> {
                     findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToRechargeFragment())
                 }
@@ -78,7 +78,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         requireContext().showFancyToast(message, type)
     }
 
-    fun formatBalance(amount: Double): Double {
+    private fun formatBalance(amount: Double): Double {
         val decimalFormat = DecimalFormat("#.##")
         return decimalFormat.format(amount).toDouble()
     }

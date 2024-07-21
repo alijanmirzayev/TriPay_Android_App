@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(private val authRepository: AuthRepository):ViewModel() {
+class HomeViewModel @Inject constructor(private val authRepository: AuthRepository) : ViewModel() {
 
     private var _user = MutableLiveData<UserLocalDTO?>()
     val user: LiveData<UserLocalDTO?> get() = _user
@@ -28,18 +28,20 @@ class HomeViewModel @Inject constructor(private val authRepository: AuthReposito
         getUserByUserId()
         getTransactionsByUserId()
     }
-    fun getUserByUserId(){
+
+    fun getUserByUserId() {
         viewModelScope.launch {
             val userId = authRepository.getUserIdFromDatastore()
             authRepository.getUserByUserId(userId!!).collect {
-                when(it){
+                when (it) {
                     is NetworkResponse.Error -> {
-                        it.message?.let { data->
+                        it.message?.let { data ->
                             _error.value = data
                         }
                     }
+
                     is NetworkResponse.Success -> {
-                        it.data?.let { data->
+                        it.data?.let { data ->
                             _user.value = data
                         }
                     }
@@ -48,18 +50,19 @@ class HomeViewModel @Inject constructor(private val authRepository: AuthReposito
         }
     }
 
-    fun getTransactionsByUserId(){
+    fun getTransactionsByUserId() {
         viewModelScope.launch {
             val userId = authRepository.getUserIdFromDatastore()
             authRepository.getTransactionsByUserId(userId!!).collect {
-                when(it){
+                when (it) {
                     is NetworkResponse.Error -> {
-                        it.message?.let { data->
+                        it.message?.let { data ->
                             _error.value = data
                         }
                     }
+
                     is NetworkResponse.Success -> {
-                        it.data?.let { data->
+                        it.data?.let { data ->
                             _transactions.value = data
                         }
                     }

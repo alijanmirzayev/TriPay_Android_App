@@ -7,17 +7,18 @@ import com.alijan.tripay.ui.BaseFragment
 
 class ResponseMessageFragment : BaseFragment<FragmentResponseMessageBinding>() {
     private val args: ResponseMessageFragmentArgs by navArgs()
-    override fun layoutInflater(): FragmentResponseMessageBinding = FragmentResponseMessageBinding.inflate(layoutInflater)
+    override fun layoutInflater(): FragmentResponseMessageBinding =
+        FragmentResponseMessageBinding.inflate(layoutInflater)
 
     override fun setupUI() {
-        with(binding){
+        with(binding) {
             textViewResponseMessageAmount.setText("₼${args.amount}0")
             textViewResponseMessage.setText(args.message)
         }
         buttonClickListener()
     }
 
-    private fun buttonClickListener(){
+    private fun buttonClickListener() {
         binding.buttonResponseMessage.setOnClickListener {
             findNavController().navigate(ResponseMessageFragmentDirections.actionSendAmountToHome())
         }
