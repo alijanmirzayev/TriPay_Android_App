@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_homeFragment_to_rechargeFragment"
             app:destination="@id/rechargeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_electricFragment"
+            app:destination="@id/electricFragment" />
     </fragment>
     <include app:graph="@navigation/send_amount_nav" />
     <include app:graph="@navigation/add_amount_nav" />
@@ -59,5 +62,14 @@
             app:destination="@id/homeFragment"
             app:popUpTo="@id/responseServiceFragment"
             app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/electricFragment"
+        android:name="com.alijan.tripay.ui.services.electric.ElectricFragment"
+        android:label="fragment_electric"
+        tools:layout="@layout/fragment_electric" >
+        <action
+            android:id="@+id/action_electricFragment_to_confirmationFragment"
+            app:destination="@id/confirmationFragment" />
     </fragment>
 </navigation>

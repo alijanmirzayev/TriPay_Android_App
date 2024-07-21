@@ -51,4 +51,8 @@
     <string name="areYouSurePayment">Zəhmət olmasa ödəniş etmək istədiyinizdən əmin olun</string>
     <string name="successPayment">Uğurlu əməliyyat</string>
     <string name="successPaymentDescription">Əməliyyatınız uğurla yerinə yetirildi</string>
+    <string name="paymentElectric">Elektrik ödənişi</string>
+    <string name="chooseOperator">Operatoru seç</string>
+    <string name="serviceCode">Abonent kodu</string>
+    <string name="enterServiceCode">Abonent kodu daxil edin</string>
 </resources>
